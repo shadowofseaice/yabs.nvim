@@ -47,23 +47,26 @@ require 'yabs'.setup {
     -- 3 main options
 
     position = {'NE', 'E', 'SE', 'C'}, 
-    -- 9 placement positions are available, They are NE, E, SE, S, SW, W, NW, N, C
+    -- 9 placement positions are available, The default is 
+    -- {'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N', 'C'}
     -- NE for North-East, E for East, etc. and C for center. The list here
     -- enables quick cycling-through with a short key in case you want to keep
-    -- a certain part of the main text visible. The first item in the list is the default value to start with.
-    -- I like the panel to in the right hand side, which tends to be more free of the text in the main buffer.
-    -- The panel size is now automatically adjusted and cannot be set or fixed by the user.
-    -- The panel can grow as big as the half of the editor, but if the editor is narrower than 20 columns
-    -- it can occupy the whole thing.
+    -- a certain part of the main text visible. The first item in the list is
+    -- the default value to start with. I like the panel to in the right hand
+    -- side, which tends to be more free of the text in the main buffer. The panel
+    -- size is now automatically adjusted and cannot be set or fixed by the user.
+    -- The panel can grow as big as the half of the editor, but if the editor is
+    -- narrower than 20 columns it can occupy the whole thing.
 
     settings = {
       {'name', 'bufnr'},
       {'icon', 'bufnr', 'bufname', 'lnum' ,'line'},
       {'path', 'name'},
     },
-    -- This sets what to display. The first list is the default set to start with, which will show
-    -- file base name and buffer number. Switching to the other sets can be done by a short key while
-    -- yabs panel is open. The 2nd set in this example will list a lot more information. The available keys are
+    -- This sets what to display. The first list is the default set to start with,
+    -- which will show file base name and buffer number. Switching to the other
+    -- sets can be done by a short key while yabs panel is open. The 2nd set in
+    -- this example will list a lot more information. The available keys are
     --
     --  icon     : nvim-web-devicons
     --  bufnr    : buffer number
@@ -97,9 +100,9 @@ require 'yabs'.setup {
         sortused= "l", -- Sort by last used, Default u
         sortbuf = "b", -- Sort clear = sort by  buffer #, default c
     },
-    -- Short key for sorting/grouping, setting change can be done by the usual keymaps in neovim.
-    -- See the examples below for options using whichkey. For other normal keymaps, simply copy the commands
-    -- in the examples below.
+    -- Short key for sorting/grouping, setting change can be also done by the usual
+    -- keymaps in neovim. See the examples below for options using whichkey. For
+    -- other normal keymaps, simply copy the commands in the examples below.
 
     -- the rest of options are simply minor tweaking for cosmetics
 
@@ -147,9 +150,9 @@ require 'yabs'.setup {
 }
 ```
 
-Add this autocmd to exit JABS when mouse click the main buffer.
+Add this autocmd to exit yabs when mouse click the main buffer.
 
-    autocmd BufEnter * lua if vim.bo.buflisted then require 'jabs'.leave() end
+    autocmd BufEnter * lua if vim.bo.buflisted then require 'yabs'.leave() end
 
 
 ### Default Keymaps
@@ -221,3 +224,4 @@ list, so the user setting for the panel size is removed from JABS.
 
 I'd like to have this as a more persistent side panel like nvim-tree, but given being a noob in lua and neovim, I hope someone capable forks this and develop or incorporate some of the features here like sorting/grouping into their own project. Perhaps it may be more useful if one can combine LSP symbols like [aerial](https://github.com/stevearc/aerial.nvim)
 
+- add marks
