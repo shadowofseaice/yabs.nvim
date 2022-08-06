@@ -90,8 +90,8 @@ require 'yabs'.setup {
         rcycset = "<", -- Reverse cycle through settings, Default [
         cycpos  = "}", -- Cycle through settings, Default >
         rcycpos = "{", -- Reverse cycle through panel placement, Default <
-        cycname = "]", -- Cycle through file name type, Default ]
-        rcycname= "[", -- Reverse cycle through file name type, Default [
+        cycname = "]", -- Cycle through file name type, Default n
+        rcycname= "[", -- Reverse cycle through file name type, Default N
         sortpath= "P", -- Sort by file path. Default P
         sortext = "e", -- Sort by file extension (type), Default t
         sortused= "l", -- Sort by last used, Default u
