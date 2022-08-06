@@ -5,9 +5,9 @@
 
 ## What's the difference from JABS?
 
-YABS inherits the basic principle of JABS for being minimal, and adds a few on-the-fly features like panel placement, sorting/grouping, setting display items, etc. The key here is that these can be switched around quickly through several short keys (instead of a fixed setting) for easy access of information regarding buffers. Some features in JABS are removed, which include user-setting for the panel size and preview.
+YABS inherits the basic principle of JABS for being minimal, and adds a few on-the-fly features like panel placement, sorting/grouping, setting display items, etc. The key here is that these can be switched around quickly through several short keys (instead of a fixed setting) for easy access of information regarding buffers. Check out images in the screenshots folder. Some features in JABS are removed, which include user-setting for the panel size and preview. 
 
-![](https://raw.githubusercontent.com/shadowofseaice/yabs.nvim/main/screenshots/Screenshot_2022-08-06_12-32-59.png)
+![](https://raw.githubusercontent.com/shadowofseaice/yabs.nvim/main/screenshots/Screenshot_2022-08-06_12-35-33.jpg)
 
 ## Requirements
 
