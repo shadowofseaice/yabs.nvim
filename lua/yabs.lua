@@ -787,7 +787,7 @@ end
 
 ------------------------------------------------------------------------------
 -- cycle through user-pickable lists of positions
-function M.rotate(inc)
+function M.cyclePlacement(inc)
     -- just do this once, there should be a better way to do this
     if M.posid < 0 then
         for i=1, #M.position do

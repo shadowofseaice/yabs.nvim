@@ -174,8 +174,8 @@ Here is an example [whichkey](https://github.com/folke/which-key.nvim) setting f
     u = { "<cmd>lua require 'yabs'.toggleSort('used:name')<cr>",       "Sort & Group by Last Use" },
     l = { "<cmd>lua require 'yabs'.toggleSort('line')<cr>",            "Sort by Total Line Count" },
     n = { "<cmd>lua require 'yabs'.toggleSort('-lnum')<cr>",           "Sort by Current Line Number" },
-    r = { "<cmd>lua require 'yabs'.rotate(1)<cr>",                     "Rotate Clockwise" },
-    R = { "<cmd>lua require 'yabs'.rotate(-1)<cr>",                    "Rotate Counter-clockwise" },
+    r = { "<cmd>lua require 'yabs'.cyclePlacement(1)<cr>",             "Cycle Panel placement" },
+    R = { "<cmd>lua require 'yabs'.cyclePlacement(-1)<cr>",            "Reverse Cycle Placement placement" },
     a = { "<cmd>lua require 'yabs'.cycleNameType(1)<cr>",              "Cycle Name Type" },
     A = { "<cmd>lua require 'yabs'.cycleNameType(-1)<cr>",             "Reverse Cycle Name Type" },
     h = { "<cmd>lua require 'yabs'.cycleGrpHeader()<cr>",              "Cycle Group Header" },
@@ -201,7 +201,7 @@ The functions starting with "cycle" enables quick switching among a few settings
     cycleNameType(1)  will cycle through file base name, buffer name, file name with full path.
     cycleGrpHeader(1) will cycle through group header options: none, only for multiple files or every buffer
 
-The function "rotate" will rotate through the placement option given by input "position".
+The function "cyclePlacement" will rotate through the placement option given by input "position".
 The width and height of the panel is automatically set based on the buffer
 list, so the user setting for the panel size is removed from JABS.
 
