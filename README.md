@@ -1,7 +1,7 @@
 # YABS.nvim
 
 
-**Y**et **A**nother **B**uffer **S**witcher is another buffer switcher window for Neovim written in Lua. This is forked from [JABS.nvim by matbme](https://github.com/matbme/JABS.nvim). His work is small and straightforward enough for noobs like me to understand what's going on. Basically my customization has gone a little too far. 
+**Y**et **A**nother **B**uffer **S**witcher is another buffer switcher window for Neovim written in Lua. This is forked from [JABS.nvim by matbme](https://github.com/matbme/JABS.nvim). His code for JABS is compact and straightforward enough for noobs like me to understand what's going on. This is basically my customization, which may have gone a little too far. 
 
 ## What's the difference from JABS?
 
@@ -153,8 +153,10 @@ If you don't feel like manually navigating to the buffer you want to open, you c
 
 ## Keymaps for sorting/grouping and setting change
 
-Here is an example of whichkey setting for shortkeys
+Here is an example of whichkey setting for short keys for YABS.
 
+```lua{
+  ...
   b = {
     name = "Buffers",
     b = { "<cmd>lua require 'yabs'.toggleSort('bufnr')<cr>",           "Sort by Buffer #" },
@@ -178,6 +180,9 @@ Here is an example of whichkey setting for shortkeys
     i = { "<cmd>lua print(vim.inspect(require 'yabs'.buf_table))<cr>", "Show Buffer Table" },
     I = { "<cmd>lua print(vim.inspect(vim.fn.getbufinfo()))<cr>",      "Show Buffer Info" },
   },
+  ...
+}
+```
 
 The internal function "toogleSort" enable sorting by any key in the buf_table. e.g.,
     toggleSort('name') will sort by file base name. 
