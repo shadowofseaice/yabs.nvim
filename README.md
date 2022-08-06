@@ -86,6 +86,16 @@ require 'yabs'.setup {
         h_split = "h", -- Horizontally split buffer. Default s
         v_split = "v", -- Vertically split buffer. Default v
         pinning = "p", -- Open buffer preview. Default p
+        cycset  = ">", -- Cycle through settings, Default ]
+        rcycset = "<", -- Reverse cycle through settings, Default [
+        cycpos  = "}", -- Cycle through settings, Default >
+        rcycpos = "{", -- Reverse cycle through panel placement, Default <
+        cycname = "]", -- Cycle through file name type, Default ]
+        rcycname= "[", -- Reverse cycle through file name type, Default [
+        sortpath= "P", -- Sort by file path. Default P
+        sortext = "e", -- Sort by file extension (type), Default t
+        sortused= "l", -- Sort by last used, Default u
+        sortbuf = "b", -- Sort clear = sort by  buffer #, default c
     },
     -- Short key for sorting/grouping, setting change can be done by the usual keymaps in neovim.
     -- See the examples below for options using whichkey. For other normal keymaps, simply copy the commands
