@@ -139,7 +139,7 @@ require 'yabs'.setup {
         edited      = "E", -- default 
         terminal    = "T", -- default 
 
-        more        = "..", -- default "", need the panel size is too small for file name
+        more        = ">", -- default "", when the panel size is too small for file name
 
         grphead     = "-", -- default " ",
         grptop      = "+", -- default "╭",
