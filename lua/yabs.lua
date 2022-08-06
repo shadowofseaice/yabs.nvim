@@ -173,12 +173,18 @@ function M.setup(cc)
 
     -- Keymap setup
     M.keymap_conf = {
-        close   = c.keymap.close   or "D",
-        jump    = c.keymap.jump    or "<cr>",
-        h_split = c.keymap.h_split or "s",
-        v_split = c.keymap.v_split or "v",
-        preview = c.keymap.preview or "P",
-        pinning = c.keymap.pinning or "p",
+        close    = c.keymap.close    or "D",
+        jump     = c.keymap.jump     or "<cr>",
+        h_split  = c.keymap.h_split  or "s",
+        v_split  = c.keymap.v_split  or "v",
+        preview  = c.keymap.preview  or "P",
+        pinning  = c.keymap.pinning  or "p",
+        cycset   = c.keymap.cycset   or "]",
+        rcycset  = c.keymap.rcycset  or "[",
+        cycname  = c.keymap.cycname  or "n",
+        rcycname = c.keymap.rcycname or "N",
+        cycpos   = c.keymap.cycpos   or ">",
+        rcycpos  = c.keymap.rcycpos  or "<",
     }
 
     -- Position setup
@@ -917,7 +923,48 @@ function M.setKeymaps(win, buf)
         string.format([[:lua require'yabs'.togglePinned()<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
-
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.cycset,
+        string.format([[:YABSCycSet<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.rcycset,
+        string.format([[:YABSRCycSet<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.cycpos,
+        string.format([[:YABSCycPos<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.cycrpos,
+        string.format([[:YABSRCycPos<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.cycname,
+        string.format([[:YABSCycName<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.rcycname,
+        string.format([[:YABSRCycName<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
     -- Navigation keymaps
     api.nvim_buf_set_keymap(
         buf,
