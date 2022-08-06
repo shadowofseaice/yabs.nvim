@@ -177,7 +177,7 @@ function M.setup(cc)
         jump     = c.keymap.jump     or "<cr>",
         h_split  = c.keymap.h_split  or "s",
         v_split  = c.keymap.v_split  or "v",
-        preview  = c.keymap.preview  or "P",
+        -- preview  = c.keymap.preview  or "P",
         pinning  = c.keymap.pinning  or "p",
         cycset   = c.keymap.cycset   or "]",
         rcycset  = c.keymap.rcycset  or "[",
@@ -185,6 +185,10 @@ function M.setup(cc)
         rcycname = c.keymap.rcycname or "N",
         cycpos   = c.keymap.cycpos   or ">",
         rcycpos  = c.keymap.rcycpos  or "<",
+        sortused = c.keymap.sortused or "u",
+        sortpath = c.keymap.sortpath or "P",
+        sortext  = c.keymap.sortext  or "t",
+        sortbuf  = c.keymap.sortbuf  or "c",
     }
 
     -- Position setup
@@ -909,13 +913,13 @@ function M.setKeymaps(win, buf)
         string.format([[:lua require'yabs'.closeBufNum(%s)<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
-    api.nvim_buf_set_keymap(
-        buf,
-        "n",
-        M.keymap_conf.preview,
-        string.format([[:lua require'yabs'.previewBuf()<CR>]], win),
-        { nowait = true, noremap = true, silent = true }
-    )
+    -- api.nvim_buf_set_keymap(
+    --     buf,
+    --     "n",
+    --     M.keymap_conf.preview,
+    --     string.format([[:lua require'yabs'.previewBuf()<CR>]], win),
+    --     { nowait = true, noremap = true, silent = true }
+    -- )
     api.nvim_buf_set_keymap(
         buf,
         "n",
@@ -978,6 +982,34 @@ function M.setKeymaps(win, buf)
         "n",
         "<Esc>",
         ':lua require"yabs".close()<CR>',
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.sortused,
+        string.format([[:lua require'yabs'.toggleSort('used:name')<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.sortpath,
+        string.format([[:lua require'yabs'.toggleSort('path:name')<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.sortext,
+        string.format([[:lua require'yabs'.toggleSort('ext:name')<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.sortbuf,
+        string.format([[:lua require'yabs'.toggleSort('bufnr')<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
     api.nvim_buf_set_keymap(buf, "n", "<Tab>", "j", { nowait = true, noremap = true, silent = true })

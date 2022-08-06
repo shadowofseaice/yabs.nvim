@@ -152,7 +152,17 @@ Add this autocmd to exit JABS when mouse click the main buffer.
 | `<CR>`         | jump to buffer                  |
 | s              | open buffer in horizontal split |
 | v              | open buffer in vertical split   |
-| p              | pin buffer                      |
+| p              | toggle pinning buffer           |
+| [              | cycle through settings          |
+| ]              | reverse cycle through settings  |
+| <              | cycle panel placement           |
+| >              | reverse cycle through placement |
+| n              | cycle through name type         |
+| N              | reverse cycle through name type |
+| u              | sort by used                    |
+| P              | sort by path:name               |
+| t              | sort by file extension          |
+| c              | sort clear = sort by buffer #   |
 
 If you don't feel like manually navigating to the buffer you want to open, you can type its number before `<CR>`, `s`, or `v` to quickly split or switch to it.
 
@@ -174,16 +184,7 @@ Here is an example [whichkey](https://github.com/folke/which-key.nvim) setting f
     u = { "<cmd>lua require 'yabs'.toggleSort('used:name')<cr>",       "Sort & Group by Last Use" },
     l = { "<cmd>lua require 'yabs'.toggleSort('line')<cr>",            "Sort by Total Line Count" },
     n = { "<cmd>lua require 'yabs'.toggleSort('-lnum')<cr>",           "Sort by Current Line Number" },
-    a = { "<cmd>lua require 'yabs'.cycleNameType(1)<cr>",              "Cycle Name Type" },
-    A = { "<cmd>lua require 'yabs'.cycleNameType(-1)<cr>",             "Reverse Cycle Name Type" },
     h = { "<cmd>lua require 'yabs'.cycleGrpHeader()<cr>",              "Cycle Group Header" },
-    r = { "<cmd>YABSCycPlace<cr>",            "Cycle Panel Placement" },
-    R = { "<cmd>YABSRCycPlace<cr>",           "Reverse Cycle Placement" },
-    c = { "<cmd>YABSCycSet<cr>",              "Cycle Settings" },
-    C = { "<cmd>YABSRCycSet<cr>",             "Reverse Cycle Settings" },
-    o = { "<cmd>lua print(vim.inspect(require 'yabs'.pinned))<cr>",    "Show Pinned Buffer #" },
-    i = { "<cmd>lua print(vim.inspect(require 'yabs'.buf_table))<cr>", "Show Buffer Table" },
-    I = { "<cmd>lua print(vim.inspect(vim.fn.getbufinfo()))<cr>",      "Show Buffer Info" },
   },
   ...
 }
