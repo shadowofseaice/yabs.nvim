@@ -126,8 +126,10 @@ require 'yabs'.setup {
         unloaded = "StatusLine"     -- default Comment
     },
 
-    -- Default symbols: some of these may not work since not all of them are tested
+    -- Default symbols: some of these may not work since not all of them are
+    -- tested
     symbols = {
+        -- at most two of these icons can be shown for a given buffer
         current     = "C", -- default 
         split       = "S", -- default 
         alternate   = "A", -- default 
@@ -137,7 +139,8 @@ require 'yabs'.setup {
         edited      = "E", -- default 
         terminal    = "T", -- default 
 
-        more        = "..", -- default "",
+        more        = "..", -- default "", need the panel size is too small for file name
+
         grphead     = "-", -- default " ",
         grptop      = "+", -- default "╭",
         grpmid      = "|", -- default "│",
@@ -177,7 +180,8 @@ Add this autocmd to exit yabs when mouse click the main buffer.
 | t              | sort by file extension          |
 | c              | sort clear = sort by buffer #   |
 
-If you don't feel like manually navigating to the buffer you want to open, you can type its number before `<CR>`, `s`, or `v` to quickly split or switch to it.
+If you don't feel like manually navigating to the buffer you want to open, you
+can type its number before `<CR>`, `s`, or `v` to quickly split or switch to it.
 
 ## Keymaps for sorting/grouping and setting change
 
@@ -208,20 +212,25 @@ The function "toogleSort" enables sorting by any key in "buf_table". e.g.,
     toggleSort('path:name') will sort & group by file path first and then break the ties by file base name
     toggleSort('used:name') will sort by last use and group them by a set of intervals from 1 to 90 minutes.
 
-Add "-" for reverse order. Sorting function usually go through ascending, descending and no sorting, which means
-sorting by the buffer number.
+Add "-" for reverse order. Sorting function usually go through ascending,
+descending and no sorting, which means sorting by the buffer number.
 
 The functions starting with "cycle" enables quick switching among a few settings.
     cycleNameType(1)  will cycle through file base name, buffer name, file name with full path.
     cycleGrpHeader(1) will cycle through group header options: none, only for multiple files or every buffer
 
-The function "cyclePlacement" will rotate through the placement option given by input "position".
-The width and height of the panel is automatically set based on the buffer
-list, so the user setting for the panel size is removed from JABS.
+The function "cyclePlacement" will rotate through the placement option given by
+input "position". The width and height of the panel is automatically set based
+on the buffer list, so the user setting for the panel size is removed from JABS.
 
 
 ## Future work
 
-I'd like to have this as a more persistent side panel like nvim-tree, but given being a noob in lua and neovim, I hope someone capable forks this and develop or incorporate some of the features here like sorting/grouping into their own project. Perhaps it may be more useful if one can combine LSP symbols like [aerial](https://github.com/stevearc/aerial.nvim)
+I'd like to have this as a more persistent side panel like nvim-tree, but given
+being a noob in lua and neovim, I hope someone capable would fork this and develop
+or incorporate some of the features here like sorting/grouping into their own
+project. Perhaps it may be more useful if one can combine LSP symbols like
+[aerial](https://github.com/stevearc/aerial.nvim).
 
-- add marks
+- add marks?
+
