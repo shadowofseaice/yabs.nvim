@@ -947,7 +947,7 @@ function M.setKeymaps(win, buf)
     api.nvim_buf_set_keymap(
         buf,
         "n",
-        M.keymap_conf.cycrpos,
+        M.keymap_conf.rcycpos,
         string.format([[:YABSRCycPos<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
