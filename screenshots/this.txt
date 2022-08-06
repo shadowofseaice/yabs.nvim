@@ -1,0 +1,14 @@
+convert Screenshot_2022-08-06_12-32-59.png Screenshot_2022-08-06_12-32-59.jpg
+convert Screenshot_2022-08-06_12-33-24.png Screenshot_2022-08-06_12-33-24.jpg
+convert Screenshot_2022-08-06_12-33-47.png Screenshot_2022-08-06_12-33-47.jpg
+convert Screenshot_2022-08-06_12-34-41.png Screenshot_2022-08-06_12-34-41.jpg
+convert Screenshot_2022-08-06_12-35-05.png Screenshot_2022-08-06_12-35-05.jpg
+convert Screenshot_2022-08-06_12-35-33.png Screenshot_2022-08-06_12-35-33.jpg
+convert Screenshot_2022-08-06_12-36-28.png Screenshot_2022-08-06_12-36-28.jpg
+convert Screenshot_2022-08-06_12-36-51.png Screenshot_2022-08-06_12-36-51.jpg
+convert Screenshot_2022-08-06_12-37-10.png Screenshot_2022-08-06_12-37-10.jpg
+convert Screenshot_2022-08-06_12-37-34.png Screenshot_2022-08-06_12-37-34.jpg
+convert Screenshot_2022-08-06_12-37-47.png Screenshot_2022-08-06_12-37-47.jpg
+convert Screenshot_2022-08-06_12-38-19.png Screenshot_2022-08-06_12-38-19.jpg
+convert Screenshot_2022-08-06_12-38-58.png Screenshot_2022-08-06_12-38-58.jpg
+convert Screenshot_2022-08-06_12-39-13.png Screenshot_2022-08-06_12-39-13.jpg
