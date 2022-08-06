@@ -20,7 +20,7 @@ YABS inherits the basic principle of JABS for being minimal, and adds a few on-t
 You can install YABS with your plugin manager of choice. If you use `packer.nvim`, simply add to your plugin list:
 
 ```lua
-use 'shadowofseaice/YABS.nvim'
+use 'shadowofseaice/yabs.nvim'
 ```
 
 ## Usage
