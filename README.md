@@ -5,9 +5,9 @@
 
 ## What's the difference from JABS?
 
-YABS inherits the basic principle of JABS for being minimal, and adds a few on-the-fly features like panel placement, sorting/grouping, setting display items, etc. The key here is these can be switched around quickly through several short keys (instead of a fixed setting) for easy access of information regarding buffers.
+YABS inherits the basic principle of JABS for being minimal, and adds a few on-the-fly features like panel placement, sorting/grouping, setting display items, etc. The key here is that these can be switched around quickly through several short keys (instead of a fixed setting) for easy access of information regarding buffers. Some features in JABS are removed, which include user-setting for the panel size and preview.
 
-![](https://raw.githubusercontent.com/shadowofseaice/YABS.nvim/main/screenshots/Screenshot_2022-08-06_12-32-59.png)
+![](https://raw.githubusercontent.com/shadowofseaice/yabs.nvim/main/screenshots/Screenshot_2022-08-06_12-32-59.png)
 
 ## Requirements
 
@@ -25,7 +25,7 @@ use 'shadowofseaice/YABS.nvim'
 
 ## Usage
 
-As previously mentioned, YABS only has one command: `:YABSOpen`, which opens YABS' window.
+The command `:YABSOpen` opens YABS' window.
 
 By default, you can navigate between buffers with `j` and `k` as well as `<Tab>` and `<S-Tab>`, and jump to a buffer with `<CR>`. When switching buffers the window closes automatically, but it can also be closed with `<Esc>` or `q`. You can also pin a buffer with 'p'.
 The preview feature is depreciated since I don't find it very useful.
@@ -137,6 +137,11 @@ require 'yabs'.setup {
 }
 ```
 
+Add this autocmd to exit JABS when mouse click the main buffer.
+
+    autocmd BufEnter * lua if vim.bo.buflisted then require 'jabs'.leave() end
+
+
 ### Default Keymaps
 
 | Key            | Action                          |
@@ -153,7 +158,7 @@ If you don't feel like manually navigating to the buffer you want to open, you c
 
 ## Keymaps for sorting/grouping and setting change
 
-Here is an example of whichkey setting for short keys for YABS.
+Here is an example [whichkey](https://github.com/folke/which-key.nvim) setting for short keys for YABS.
 
 ```lua{
   ...
@@ -184,7 +189,7 @@ Here is an example of whichkey setting for short keys for YABS.
 }
 ```
 
-The internal function "toogleSort" enable sorting by any key in the buf_table. e.g.,
+The function "toogleSort" enables sorting by any key in "buf_table". e.g.,
     toggleSort('name') will sort by file base name. 
     toggleSort('path:name') will sort & group by file path first and then break the ties by file base name
     toggleSort('used:name') will sort by last use and group them by a set of intervals from 1 to 90 minutes.
@@ -192,13 +197,13 @@ The internal function "toogleSort" enable sorting by any key in the buf_table. e
 Add "-" for reverse order. Sorting function usually go through ascending, descending and no sorting, which means
 sorting by the buffer number.
 
-The internal functions starting with "cycle" enables quick switching among a few settings.
+The functions starting with "cycle" enables quick switching among a few settings.
     cycleNameType(1)  will cycle through file base name, buffer name, file name with full path.
     cycleGrpHeader(1) will cycle through group header options: none, only for multiple files or every buffer
 
-The internal function "rotate" will rotate through the placement option given by input "position".
+The function "rotate" will rotate through the placement option given by input "position".
 The width and height of the panel is automatically set based on the buffer
-list, so the user cannot fix the size any more.
+list, so the user setting for the panel size is removed from JABS.
 
 
 ## Future work
