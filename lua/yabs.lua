@@ -1102,7 +1102,7 @@ function M.refresh(buf)
         vim.cmd("set rnu")
         vim.cmd("set nu")
     end
-    api.nvim_win_set_cursor(M.main_win, { M.cur_buf_line_num, M.win_conf.width+3})
+    api.nvim_win_set_cursor(M.main_win, { M.cur_buf_line_num, M.win_conf.width+M.bufinfo.grptop:len()})
     vim.opt_local["scrolloff"] = 0
     vim.opt_local["sidescrolloff"] = 0
 
