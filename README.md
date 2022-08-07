@@ -95,6 +95,7 @@ require 'yabs'.setup {
         rcycpos = "{", -- Reverse cycle through panel placement, Default <
         cycname = "]", -- Cycle through file name type, Default n
         rcycname= "[", -- Reverse cycle through file name type, Default N
+        cychdr  = "T", -- Cycle through group header options, Default H
         sortpath= "P", -- Sort by file path. Default P
         sortext = "e", -- Sort by file extension (type), Default t
         sortused= "l", -- Sort by last used, Default u
@@ -176,6 +177,7 @@ Add this autocmd to exit yabs when mouse click the main buffer.
 | >              | reverse cycle through placement |
 | n              | cycle through name type         |
 | N              | reverse cycle through name type |
+| H              | cycle through group header opt  |
 | u              | sort by used                    |
 | P              | sort by path:name               |
 | t              | sort by file extension          |

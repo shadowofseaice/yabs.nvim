@@ -185,6 +185,7 @@ function M.setup(cc)
         rcycname = c.keymap.rcycname or "N",
         cycpos   = c.keymap.cycpos   or ">",
         rcycpos  = c.keymap.rcycpos  or "<",
+        cychdr   = c.keymap.cychdr   or "H",
         sortused = c.keymap.sortused or "u",
         sortpath = c.keymap.sortpath or "P",
         sortext  = c.keymap.sortext  or "t",
@@ -1016,6 +1017,13 @@ function M.setKeymaps(win, buf)
         "n",
         M.keymap_conf.sortbuf,
         string.format([[:lua require'yabs'.toggleSort('bufnr')<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.cychdr,
+        string.format([[:lua require'yabs'.cycleGrpHeader()<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
     api.nvim_buf_set_keymap(buf, "n", "<Tab>", "j", { nowait = true, noremap = true, silent = true })
