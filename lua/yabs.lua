@@ -1087,8 +1087,16 @@ end
 
 function M.refresh(buf)
     local empty = {}
+
+    local delx1=0
+    local delx2=0
+    if M.bufinfo.grptop:len() >1 then
+        delx1 = 1
+        delx2 = 3
+    end
+
     for _ = 1, #M.buf_table do
-        empty[#empty + 1] = string.rep(" ", M.win_conf.width+1)
+        empty[#empty + 1] = string.rep(" ", M.win_conf.width+delx1)
     end
 
     api.nvim_buf_set_option(buf, "modifiable", true)
@@ -1102,7 +1110,7 @@ function M.refresh(buf)
         vim.cmd("set rnu")
         vim.cmd("set nu")
     end
-    api.nvim_win_set_cursor(M.main_win, { M.cur_buf_line_num, M.win_conf.width+M.bufinfo.grptop:len()})
+    api.nvim_win_set_cursor(M.main_win, { M.cur_buf_line_num, M.win_conf.width+delx2})
     vim.opt_local["scrolloff"] = 0
     vim.opt_local["sidescrolloff"] = 0
 
