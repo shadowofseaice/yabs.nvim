@@ -793,7 +793,7 @@ function M.parseLs(buf)
 
         -- Highlight line and icon
         api.nvim_buf_add_highlight(buf, -1, highlight, linenr, hlstart, -1)
-        if buf_row['hl_icon'] then
+        if buf_row['hl_icon'] and buf_row['loaded'] then
             local pos = line:find(buf_row['icon'], 1, true)
             if pos ~= nil then
                 api.nvim_buf_add_highlight(buf, -1, buf_row['hl_icon'], linenr, pos, pos + buf_row['icon']:len())
