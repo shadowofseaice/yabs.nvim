@@ -61,7 +61,7 @@ require 'yabs'.setup {
     settings = {
       {'name', 'bufnr'},
       {'icon', 'bufnr', 'bufname', 'lnum' ,'line'},
-      {'path', 'name'},
+      {'path', 'name', 'bufid'},
     },
     -- This sets what to display. The first list is the default set to start with,
     -- which will show file base name and buffer number. Switching to the other
@@ -70,7 +70,7 @@ require 'yabs'.setup {
     --
     --  icon     : nvim-web-devicons
     --  bufnr    : buffer number
-    --  bufid    : buffer order id
+    --  bufid    : buffer load order 
     --  name     : file base name
     --  bufname  : buffer name, given by !ls 
     --  fullname : file name with full path
@@ -127,7 +127,8 @@ require 'yabs'.setup {
     },
 
     -- Default symbols: some of these may not work since not all of them are
-    -- tested
+    -- tested. Since each icon seems to use 2 bytes, the simple text version,
+    -- which is note tested yet, might not work right.
     symbols = {
         -- at most two of these icons can be shown for a given buffer
         current     = "C", -- default 
