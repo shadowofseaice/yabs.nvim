@@ -401,13 +401,13 @@ function M.getFileSymbol(basename, ext)
     local devicons = pcall(require, "nvim-web-devicons")
     if devicons then
         -- do not take its own highlight
-        local icon, _ = require("nvim-web-devicons").get_icon(basename, ext)
+        local icon, hl = require("nvim-web-devicons").get_icon(basename, ext)
         if icon == nil then
             return M.bufinfo.filedef
         end
-        return icon --, hl, basename
+        return icon , hl --, basename
     else
-        return M.bufinfo.filedef --, nil, basename
+        return M.bufinfo.filedef , nil --, basename
     end
 end
 
@@ -499,7 +499,7 @@ function M.getBufTable()
         }
 
         if M.use_devicons then
-            row["icon"] = M.getFileSymbol(basename, ext)
+            row["icon"], row["hl_icon"] = M.getFileSymbol(basename, ext)
         end
 
         table.insert(M.buf_table, row)
@@ -792,6 +792,12 @@ function M.parseLs(buf)
 
         -- Highlight line and icon
         api.nvim_buf_add_highlight(buf, -1, highlight, linenr, hlstart, -1)
+        if buf_row['hl_icon'] then
+            local pos = line:find(buf_row['icon'], 1, true)
+            if pos ~= nil then
+                api.nvim_buf_add_highlight(buf, -1, buf_row['hl_icon'], linenr, pos, pos + buf_row['icon']:len())
+            end
+        end
     end
 end
 
