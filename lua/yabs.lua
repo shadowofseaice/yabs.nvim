@@ -192,6 +192,7 @@ function M.setup(cc)
         sortbuf  = c.keymap.sortbuf  or "c",
         sortbase = c.keymap.sortbase or "f",
         sortfull = c.keymap.sortfull or "F",
+        sortinit = c.keymap.sortinit or "i",
     }
 
     -- Position setup
@@ -484,6 +485,7 @@ function M.getBufTable()
             fullname= buf["name"],
             bufname = bufname[bufnr],
             name    = basename,
+            initial = basename:sub(1,1),
             ext     = ext,
             fullpath= path,
             path    = bufpath[bufnr],
@@ -1035,6 +1037,13 @@ function M.setKeymaps(win, buf)
         "n",
         M.keymap_conf.sortfull,
         string.format([[:lua require'yabs'.toggleSort('fullname')<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.sortinit,
+        string.format([[:lua require'yabs'.toggleSort('initial')<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
     api.nvim_buf_set_keymap(
