@@ -177,13 +177,15 @@ Add this autocmd to exit yabs when mouse click the main buffer.
 | ]              | reverse cycle through settings  |
 | <              | cycle panel placement           |
 | >              | reverse cycle through placement |
-| n              | cycle through name type         |
-| N              | reverse cycle through name type |
+| }              | cycle through name type         |
+| {              | reverse cycle through name type |
 | H              | cycle through group header opt  |
 | u              | sort by used                    |
 | P              | sort by path:name               |
 | t              | sort by file extension          |
 | c              | sort clear = sort by buffer #   |
+| f              | sort file base name             |
+| F              | sort full file name             |
 
 If you don't feel like manually navigating to the buffer you want to open, you
 can type its number before `<CR>`, `s`, or `v` to quickly split or switch to it.

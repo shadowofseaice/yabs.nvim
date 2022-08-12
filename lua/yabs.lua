@@ -1027,7 +1027,7 @@ function M.setKeymaps(win, buf)
         buf,
         "n",
         M.keymap_conf.sortbase,
-        string.format([[:lua require'yabs'.toggleSort('basename')<CR>]], win),
+        string.format([[:lua require'yabs'.toggleSort('name')<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
     api.nvim_buf_set_keymap(
@@ -1044,7 +1044,7 @@ function M.setKeymaps(win, buf)
         string.format([[:lua require'yabs'.cycleGrpHeader()<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
-    api.nvim_buf_set_keymap(buf, "n", "<Tab>", "j", { nowait = true, noremap = true, silent = true })
+    api.nvim_buf_set_keymap(buf, "n", "<Tab>",   "j", { nowait = true, noremap = true, silent = true })
     api.nvim_buf_set_keymap(buf, "n", "<S-Tab>", "k", { nowait = true, noremap = true, silent = true })
 
     -- Prevent cursor from going to buffer title
