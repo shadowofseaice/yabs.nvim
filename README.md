@@ -100,8 +100,9 @@ require 'yabs'.setup {
         sortext = "e", -- Sort by file extension (type), Default t
         sortused= "l", -- Sort by last used, Default u
         sortbuf = "x", -- Sort clear = sort by buffer #, default c
-        sortbase= "b", -- Sort clear = sort by file base name #, default f
-        sortfull= "f", -- Sort clear = sort by full file name #, default F
+        sortbase= "b", -- Sort by file base name #, default f
+        sortfull= "f", -- Sort by full file name #, default F
+        sortinit= "i", -- Sort by file name initial #, default i
     },
     -- Short key for sorting/grouping, setting change can be also done by the usual
     -- keymaps in neovim. See the examples below for options using whichkey. For
@@ -184,8 +185,9 @@ Add this autocmd to exit yabs when mouse click the main buffer.
 | P              | sort by path:name               |
 | t              | sort by file extension          |
 | c              | sort clear = sort by buffer #   |
-| f              | sort file base name             |
-| F              | sort full file name             |
+| f              | sort by file base name          |
+| F              | sort by full file name          |
+| i              | sort by file name initial       |
 
 If you don't feel like manually navigating to the buffer you want to open, you
 can type its number before `<CR>`, `s`, or `v` to quickly split or switch to it.
