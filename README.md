@@ -93,13 +93,15 @@ require 'yabs'.setup {
         rcycset = "<", -- Reverse cycle through settings, Default [
         cycpos  = "}", -- Cycle through settings, Default >
         rcycpos = "{", -- Reverse cycle through panel placement, Default <
-        cycname = "]", -- Cycle through file name type, Default n
-        rcycname= "[", -- Reverse cycle through file name type, Default N
+        cycname = "]", -- Cycle through file name type, Default }
+        rcycname= "[", -- Reverse cycle through file name type, Default {
         cychdr  = "T", -- Cycle through group header options, Default H
         sortpath= "P", -- Sort by file path. Default P
         sortext = "e", -- Sort by file extension (type), Default t
         sortused= "l", -- Sort by last used, Default u
-        sortbuf = "b", -- Sort clear = sort by  buffer #, default c
+        sortbuf = "x", -- Sort clear = sort by buffer #, default c
+        sortbase= "b", -- Sort clear = sort by file base name #, default f
+        sortfull= "f", -- Sort clear = sort by full file name #, default F
     },
     -- Short key for sorting/grouping, setting change can be also done by the usual
     -- keymaps in neovim. See the examples below for options using whichkey. For
@@ -111,10 +113,10 @@ require 'yabs'.setup {
     border = 'none', -- none, single, double, rounded, solid, shadow, (or an array or chars). Default shadow
 
     offset = { -- window position offset
-        top = 1, -- default 0
-        bottom = 1, -- default 0
-        left = 1, -- default 0
-        right = 1, -- default 0
+        top     = 1, -- default 0
+        bottom  = 1, -- default 0
+        left    = 1, -- default 0
+        right   = 1, -- default 0
     },
 
     -- Default highlights (must be a valid :highlight)

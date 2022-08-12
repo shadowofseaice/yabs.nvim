@@ -181,8 +181,8 @@ function M.setup(cc)
         pinning  = c.keymap.pinning  or "p",
         cycset   = c.keymap.cycset   or "]",
         rcycset  = c.keymap.rcycset  or "[",
-        cycname  = c.keymap.cycname  or "n",
-        rcycname = c.keymap.rcycname or "N",
+        cycname  = c.keymap.cycname  or "}",
+        rcycname = c.keymap.rcycname or "{",
         cycpos   = c.keymap.cycpos   or ">",
         rcycpos  = c.keymap.rcycpos  or "<",
         cychdr   = c.keymap.cychdr   or "H",
@@ -190,6 +190,8 @@ function M.setup(cc)
         sortpath = c.keymap.sortpath or "P",
         sortext  = c.keymap.sortext  or "t",
         sortbuf  = c.keymap.sortbuf  or "c",
+        sortbase = c.keymap.sortbase or "f",
+        sortfull = c.keymap.sortfull or "F",
     }
 
     -- Position setup
@@ -1019,6 +1021,20 @@ function M.setKeymaps(win, buf)
         "n",
         M.keymap_conf.sortbuf,
         string.format([[:lua require'yabs'.toggleSort('bufnr')<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.sortbase,
+        string.format([[:lua require'yabs'.toggleSort('basename')<CR>]], win),
+        { nowait = true, noremap = true, silent = true }
+    )
+    api.nvim_buf_set_keymap(
+        buf,
+        "n",
+        M.keymap_conf.sortfull,
+        string.format([[:lua require'yabs'.toggleSort('fullname')<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
     api.nvim_buf_set_keymap(
