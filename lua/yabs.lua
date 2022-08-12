@@ -793,7 +793,7 @@ function M.parseLs(buf)
         -- Write the line
         -- cut the line first before write, otherwise the text goes beyond the window size
         line = line:sub(1,M.win_conf.width+10)
-        api.nvim_buf_set_text(buf, linenr, 0, linenr, M.win_conf.width, { line })
+        api.nvim_buf_set_text(buf, linenr, 0, linenr, M.win_conf.width+1, { line })
 
         -- Highlight line and icon
         api.nvim_buf_add_highlight(buf, -1, highlight, linenr, hlstart, -1)
