@@ -1043,7 +1043,7 @@ function M.setKeymaps(win, buf)
         buf,
         "n",
         M.keymap_conf.sortinit,
-        string.format([[:lua require'yabs'.toggleSort('initial')<CR>]], win),
+        string.format([[:lua require'yabs'.toggleSort('initial:name')<CR>]], win),
         { nowait = true, noremap = true, silent = true }
     )
     api.nvim_buf_set_keymap(
